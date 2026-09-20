@@ -1,0 +1,21 @@
+{
+    "name": "roguelikedev2026",
+    "module": "src/index.js",
+    "type": "module",
+    "scripts": {
+        "dev": "esbuild src/index.js --bundle --sourcemap --watch --outfile=build/game.js --servedir=build",
+        "build": "esbuild src/index.js --bundle --minify --drop-labels=DEV --outfile=build/game.js",
+        "prepare": "npm run build",
+        "format": "prettier -w src"
+    },
+    "devDependencies": {
+        "esbuild": "^0.28.2",
+        "prettier": "^3.9.8"
+    },
+    "engines": {
+        "runtime": {
+            "name": "bun",
+            "onFail": "error"
+        }
+    }
+}
