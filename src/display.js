@@ -100,7 +100,7 @@ export default class Display {
     }
 
     draw(x, y, ch, fg, bg, altText) {
-        if (this._validatePos(x, y)) {
+        if (this._validateXY(x, y)) {
             const cell = this._data[`${x},${y}`]
             cell.textContent = ch ? ch[0] : ''
             cell.style.backgroundColor = bg || this._opts.bg
@@ -109,9 +109,11 @@ export default class Display {
         }
     }
 
-    drawTile(x, y, image, altText) {}
+    drawTile(x, y, image, altText) {
+        throw new Error('Not implemented yet')
+    }
 
-    _validatePos(x, y) {
+    _validateXY(x, y) {
         return x >= 0 && x < this._opts.width && y >= 0 && y < this._opts.height
     }
 
