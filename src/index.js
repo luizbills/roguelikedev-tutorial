@@ -3,6 +3,8 @@ import Display from './display.js'
 const display = new Display({
     width: 80,
     height: 50,
+    fontFamily: 'monogram, monospace',
+    fontSize: 28,
 })
 
 const player = {
@@ -10,8 +12,6 @@ const player = {
     x: Math.floor(display.W / 2),
     y: Math.floor(display.H / 2),
 }
-
-display.draw(player.x, player.y, player.ch, null, null, 'You')
 
 const DIRS = {
     // WASD
@@ -33,10 +33,12 @@ window.addEventListener('keydown', (ev) => {
         const dx = DIRS[key][0]
         const dy = DIRS[key][1]
 
-        display.clear()
+        display.draw(player.x, player.y, '')
 
         player.x += dx
         player.y += dy
         display.draw(player.x, player.y, player.ch, null, null, 'You')
     }
 })
+
+display.draw(player.x, player.y, player.ch, null, null, 'You')
